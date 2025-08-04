@@ -26,6 +26,8 @@ An UART task reads the data from the queue. Values are converted to a JSON forma
 
 The ESP32 receives the JSON-formatted data from the STM32 via UART, parses it, and publishes it to the Adafruit IO Dashboard using the MQTT protocol. On the ESP32 side, the received data is also used for ambient evaluation. If parameters fall outside the predefined thresholds (e.g., temperature < 15°C and humidity < 50%), a warning is triggered. A buzzer is activated when the ambient conditions are poor. These evaluation messages are also published to the dashboard for user feedback.
 
+__Hardware Note__: The BME280 sensor module used in this project was hand-soldered. Although the soldering wasn’t perfectly clean visually, continuity was tested, and no short circuits were found. The sensor has been functioning correctly under real-time operating conditions.
+
 Figure 1 : System Overview
 
 <img src="https://github.com/ssenanb/RTOS-Based-Multi-Sensor-Environmental-Analyzer/blob/main/system_overview.jpeg" alt="System Overview" width="500"/>
