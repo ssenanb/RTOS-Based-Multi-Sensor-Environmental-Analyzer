@@ -78,7 +78,7 @@ Figure 2 : Adafruit IO Dashboard
 
 * __MQTT Protocol__ – Data transmission from ESP32 to Adafruit IO  
 
-* __GPIO / PWM / ADC Peripherals__ – Use of STM32 hardware features
+* __GPIO / PWM / ADC / UART Communication Peripherals__ – Use of STM32 hardware features
 
 
 
