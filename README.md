@@ -84,8 +84,7 @@ Figure 2 : Adafruit IO Dashboard
 
 Figure 3 : Pin Configuration In The STM32CubeIDE
 
-<img src="https://github.com/ssenanb/RTOS-Based-Multi-Sensor-Environmental-Analyzer/blob/main/configuration.png
-" alt="Configuration" width="500"/>
+<img src="https://github.com/ssenanb/RTOS-Based-Multi-Sensor-Environmental-Analyzer/blob/main/configuration.png" alt="Configuration" width="500"/>
 
 PA0 -> ADC_IN0 -> A0 Pin MQ135 Gas Sensor
 
