@@ -32,7 +32,7 @@ Figure 1 : System Overview
 
 Figure 2 : Adafruit IO Dashboard
 
-<img src="https://github.com/ssenanb/RTOS-Based-Multi-Sensor-Environmental-Analyzer/blob/main/dashboard.png" alt="System Overview" width="500"/>
+<img src="https://github.com/ssenanb/RTOS-Based-Multi-Sensor-Environmental-Analyzer/blob/main/dashboard.png" alt="Dashboard" width="500"/>
 
 # Hardware Components
 
@@ -80,6 +80,36 @@ Figure 2 : Adafruit IO Dashboard
 
 * __GPIO / PWM / ADC / UART Communication Peripherals__ – Use of STM32 hardware features
 
+# Pin Configuration
+
+Figure 3 : Pin Configuration In The STM32CubeIDE
+
+<img src="https://github.com/ssenanb/RTOS-Based-Multi-Sensor-Environmental-Analyzer/blob/main/configuration.png
+" alt="Configuration" width="500"/>
+
+PA0 -> ADC_IN0 -> A0 Pin MQ135 Gas Sensor
+
+PA9 -> USART1_TX -> ESP32 - U2_RXD (G16)
+
+PA10 -> USART1_RX -> ESP32 - U2_TXD (G17)
+
+PB6 -> I2C_SCL -> BME280 - SCL
+
+PB7 -> I2C_SDA -> BME280 - SDA
+
+PC2 -> GPIO_Output -> LED
+
+PC3 -> GPIO_EXTI3 -> Sound Sensor
+
+STM32F0DISC -> 5V -> Board
+
+STM32F0DISC -> GND -> Board
+
+ESP32 -> GND -> Board
+
+ESP32 -> G2 -> Active Buzzer
+
+All the GNDs are connected.
 
 
 
