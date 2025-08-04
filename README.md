@@ -8,7 +8,7 @@ This project monitors ambient conditions using acquired temperature, humidity, p
 
 The system operates based on event-driven task structure using CMSIS-RTOS v2. Below is a breakdown of the  architecture:
 
-__* STM32 Side__
+* __STM32 Side__
 
 A sound sensor was connected to an external interrupt pin. When a sound is detected, an interrupt is triggered and a binary semaphore is released. A LED is turned on to indicate that the interrupt has occured.
 
@@ -22,7 +22,7 @@ Sensor readings are taken every 3 seconds using `vTaskDelayUntil`. Readings sens
 
 An UART task reads the data from the queue. Values are converted to a JSON format using `snprintf`. UART communication is protected using a mutex and the data is sent via UART.
 
-__* ESP32 Side__
+* __ESP32 Side__
 
 The ESP32 receives the JSON-formatted data from the STM32 via UART, parses it, and publishes it to the Adafruit IO Dashboard using the MQTT protocol. On the ESP32 side, the received data is also used for ambient evaluation. If parameters fall outside the predefined thresholds (e.g., temperature < 15°C and humidity < 50%), a warning is triggered. A buzzer is activated when the ambient conditions are poor. These evaluation messages are also published to the dashboard for user feedback.
 
@@ -36,39 +36,47 @@ Figure 2 : Adafruit IO Dashboard
 
 # Hardware Components
 
-* STM32F0DISC
+* __STM32F0DISC__
 
-* ESP32 WROOM 32D
+* __ESP32 WROOM 32D__
 
-* USB to TTL (Serial) Communication Module (for debug)
+* __USB to TTL (Serial) Communication Module (for debug)__
 
-* BME280 Sensor
+* __BME280 Sensor__
 
-* MQ135 Sensor
+* __MQ135 Sensor__
 
-* Sound Sensor
+* __Sound Sensor__
   
-* LED
+* __LED__
 
-* Resistor (330 ohm)
+* __Resistor (330 ohm)__
 
-* Active Buzzer
+* __Active Buzzer__
 
-* Jumper Cables
+* __Jumper Cables__
 
 # Software Components
 
-* STM32CubeIDE
+* __STM32CubeIDE__
 
-* Arduino IDE (for the ESP32)
+* __Arduino IDE (for the ESP32)__
 
-* C/C++ Programming Languages
+* __C/C++ Programming Languages__
 
-* Adafruit IO Dashboard
+* __Adafruit IO Dashboard__
 
-* Termitte Terminal (for debug)
+* __Termitte Terminal (for debug)__
 
+* __UART Serial Communication__
 
+* __FreeRTOS (CMSIS-RTOS v2)__
+
+* __Digital Filtering (Moving Average)__
+
+* __MQTT Protocol__
+
+* __GPIO / PWM / ADC Peripherals__
 
 
 
