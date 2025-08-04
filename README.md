@@ -36,47 +36,49 @@ Figure 2 : Adafruit IO Dashboard
 
 # Hardware Components
 
-* __STM32F0DISC__
+* __STM32F0DISC__ – Main microcontroller unit for sensor acquisition and processing
 
-* __ESP32 WROOM 32D__
+* __ESP32 WROOM 32D__ – Wi-Fi module for MQTT communication with Adafruit IO  
 
-* __USB to TTL (Serial) Communication Module (for debug)__
+* __USB to TTL (Serial) Communication Module__ – For debugging via UART  
 
-* __BME280 Sensor__
+* __BME280 Sensor__ – Measures temperature, humidity, and pressure
 
-* __MQ135 Sensor__
+* __MQ135 Sensor__ – Detects air quality (gas concentration)  
 
-* __Sound Sensor__
+* __Sound Sensor__ – Used for triggering  
   
-* __LED__
+* __LED__ – Visual indicator for interrupt status  
 
-* __Resistor (330 ohm)__
+* __Resistor (330 ohm)__ – Current limiting resistor for the LED  
 
-* __Active Buzzer__
+* __Active Buzzer__ – Audible alert when environment is unhealthy  
 
-* __Jumper Cables__
+* __Jumper Cables__ – Used to connect components  
+
+* __Breadboard__ – For prototyping and sensor wiring
+
+* __USB Cable / Power Supply__ – Powering the STM32 and ESP32 modules
 
 # Software Components
 
-* __STM32CubeIDE__
+* __STM32CubeIDE__ – Embedded firmware development for STM32
 
-* __Arduino IDE (for the ESP32)__
+* __Arduino IDE__ – Programming  the ESP32 module
 
-* __C/C++ Programming Languages__
+* __C/C++ Programming Languages__ – Core programming languages for embedded development
 
-* __Adafruit IO Dashboard__
+* __Adafruit IO Dashboard__ – Visualization of environmental sensor data  
 
-* __Termitte Terminal (for debug)__
+* __Termitte Terminal (for debug)__ – Serial debugging and log monitoring via UART 
 
-* __UART Serial Communication__
+* __FreeRTOS (CMSIS-RTOS v2)__ – Real-time task management on STM32
 
-* __FreeRTOS (CMSIS-RTOS v2)__
+* __Digital Filtering (Moving Average)__ – Smoothing sensor readings 
 
-* __Digital Filtering (Moving Average)__
+* __MQTT Protocol__ – Data transmission from ESP32 to Adafruit IO  
 
-* __MQTT Protocol__
-
-* __GPIO / PWM / ADC Peripherals__
+* __GPIO / PWM / ADC Peripherals__ – Use of STM32 hardware features
 
 
 
