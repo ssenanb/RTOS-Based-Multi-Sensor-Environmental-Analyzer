@@ -72,7 +72,7 @@ Figure 2 : Adafruit IO Dashboard
 
 * __Adafruit IO Dashboard__ – Visualization of environmental sensor data  
 
-* __Termitte Terminal (for debug)__ – Serial debugging and log monitoring via UART 
+* __Termitte Terminal__ – Serial debugging and log monitoring via UART 
 
 * __FreeRTOS (CMSIS-RTOS v2)__ – Real-time task management on STM32
 
