@@ -102,7 +102,7 @@ PC2 -> GPIO_Output -> LED
 
 PC3 -> GPIO_EXTI3 -> Sound Sensor
 
-STM32F0DISC -> 5V -> Board
+STM32F0DISC -> 3V -> Board
 
 STM32F0DISC -> GND -> Board
 
