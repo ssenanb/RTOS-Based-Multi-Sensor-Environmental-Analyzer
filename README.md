@@ -80,7 +80,7 @@ Figure 2 : Adafruit IO Dashboard
 
 * __MQTT Protocol__ – Data transmission from ESP32 to Adafruit IO  
 
-* __GPIO / PWM / ADC / UART Communication Peripherals__ – Use of STM32 hardware features
+* __GPIO / ADC / UART Communication Peripherals__ – Use of STM32 hardware features
 
 # Pin Configuration
 
@@ -112,5 +112,60 @@ ESP32 -> G2 -> Active Buzzer
 
 All the GNDs are connected.
 
+# Challenges Encountered And Solutions
 
+1) A driver sourced from GitHub for the BME280 sensor was not suitable for use with an RTOS. It relied on blocking methods. Therefore, it was adapted to be RTOS-compatible by introducing mutex protection and modifying the functions to use non-blocking behavior.
 
+2) The gas sensor produced unstable readings. To improve stability and reliability, a moving average filter was applied.
+
+3) At first, individual tasks were assigned to each sensor. This design caused a RAM overflow because of the system’s constrained memory. The solution was to consolidate all sensor operations into a single task, calling separate functions for each sensor within it.
+
+4) Using float variables caused a RAM overflow in the system. To solve this, I read sensor values as integers, performed scaled mathematical operations, and only converted them to float when needed.
+
+5) Because of STM32's hardware constraints, the evaluation logic and buzzer control were handled by the ESP32.
+
+# What I Learned from This Project
+
+* I learned how to synchronize RTOS structures (tasks, semaphores, mutexes, queues) effectively within a real embedded system project.
+
+* I gained practical experience adapting and developing RTOS-compatible drivers, refactoring blocking code into non-blocking implementations.
+
+* I understood the critical importance of synchronizing hardware peripherals like GPIO, ADC, and UART within an RTOS environment.
+
+* I experienced task management and memory optimization under resource-constrained conditions, such as avoiding RAM overflow.
+
+* I realized the significance of digital filtering techniques (e.g., moving average filter) to produce stable sensor data when working with multiple sensors.
+
+* I successfully enabled synchronized communication between two different microcontrollers (STM32 and ESP32) over UART.
+
+* I learned about JSON data formatting, string handling with functions like snprintf, and protecting UART communication using mutexes.
+
+* I implemented data transmission using the MQTT protocol and integrated real-time sensor visualization on an IoT dashboard.
+
+* Through hands-on work, I observed the benefits of event-driven software architecture, such as lower CPU usage and reactive task execution.
+
+* I developed the ability to analyze and solve problems encountered during the project, including RAM overflow, incompatible drivers, and noisy sensor data.
+
+* Beyond technical problem solving, I cultivated discipline in project documentation, visual presentation, and maintaining a shareable, professional-quality repository.
+
+# Known Limitations
+
+* Sensor readings depend on environmental placement and may vary due to airflow or proximity.
+
+* No persistent data logging was implemented.
+
+* Power efficiency was not optimized (system always active).
+
+* ESP32-side decision logic may require further tuning for real-world deployment.
+
+# Future Improvements
+
+* Add persistent SD card logging on STM32 or ESP32.
+
+* Include OTA (Over-the-Air) update capability on ESP32.
+
+* Integrate an OLED display to show local sensor data.
+
+* Implement ESP32 deep sleep for power saving.
+
+* Add configuration mode for threshold values via dashboard.
